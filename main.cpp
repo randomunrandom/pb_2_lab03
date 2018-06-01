@@ -24,8 +24,10 @@ int main(){
     s.draw();
     Romb r(10, 50, 10, 10, -10, 13);
     r.draw();
-    r.rotate(3.1415/2);
-    r.draw();
+    for(int i=0; i<1000; i++) {
+        r.rotate(3.1415 * 2 / 3);
+        r.draw();
+    }
     Rect re(50, 10, 10, 10, 10, 10);
     re.draw();
     Parall pa(100, 100, 10, 10, 10, -10, 7);

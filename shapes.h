@@ -5,6 +5,9 @@
 #ifndef LAB103_PROG_SHAPES_H
 #define LAB103_PROG_SHAPES_H
 #include "graphics.h"
+#include <random>
+#include <ctime>
+
 
 class Point {
 protected:
@@ -14,9 +17,9 @@ protected:
 
 public:
     Point (int _x, int _y, int c) : x(_x), y(_y), color(c) {}
-    Point() : x(0), y(0), color(13) {}
+    Point() : x(0), y(0), color(13) {srand(time(NULL));}
     Point(Point& p) = default;
-    ~Point() {}
+    ~Point() = default;
 
     virtual void draw() {putpixel (x, y, color);}
     void hide() {putpixel (x, y, 13);}
@@ -35,7 +38,7 @@ public:
     Line(int _x, int _y, int _dx, int _dy, int c) : Point(_x, _y, c), dx(_dx), dy(_dy) {}
     Line() : Point(0, 0, 13), dx(0), dy(0) {}
     Line(Line& xx) = default;
-    ~Line() {}
+    ~Line() = default;
 
     void draw() {
         setcolor (color);
@@ -63,7 +66,7 @@ public:
     Circle (int _x, int _y, double _r, int c) : Point(_x, _y, c), r(_r) {}
     Circle() : Point(0, 0, 13), r(0) {}
     Circle(Circle& xx) = default;
-    ~Circle() {}
+    ~Circle() = default;
 
     void draw() {
         setcolor(color);
@@ -83,7 +86,7 @@ public:
     Square (int _x, int _y, int _dx, int _dy, int c) : Line(_x, _y, _dx, _dy, c) {}
     Square() : Line(0, 0, 0, 0, 13) {}
     Square(Square& x) = default;
-    ~Square() {}
+    ~Square() = default;
 
     void draw() {
         setcolor(color);
@@ -111,7 +114,7 @@ public:
     Romb (int _x, int _y, int _dx, int _dy, double fi, int c): Square(_x, _y, _dx, _dy, c), a(fi) {};
     Romb(): Square(0, 0, 0, 0, 13), a(0) {}
     Romb(Romb& x) = default;
-    ~Romb() {}
+    ~Romb() = default;
 
     void draw() {
         setcolor(color);
@@ -153,7 +156,7 @@ public:
     Rect (int _x, int _y, int _dx, int _dy, double fi, int c) : Square(_x, _y, _dx, _dy, c), b(fi) {}
     Rect() : Square(0, 0, 0, 0, 13), b(0) {}
     Rect(Rect& x) = default;
-    ~Rect() {}
+    ~Rect() = default;
 
     void draw() {
         setcolor(color);
@@ -203,7 +206,7 @@ public:
     Parall(int _x, int _y, int _dx, int _dy, double _a, double _b, int c) {x = _x;y = _y;dx = _dx;dy = _dy;a = _a;b = _b;color = c;}
     Parall() : Romb(0, 0, 0, 0, 0, 13),Rect(0, 0, 0, 0, 0, 13) {};
     Parall(Parall& xx) = default;
-    ~Parall() {}
+    ~Parall() = default;
 
     void show() {std::cout << x << " " << y << " " << dx << " " << dy << " " << a << " " << b << " " << color;}
     void draw() {
