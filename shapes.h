@@ -201,13 +201,13 @@ public:
     Rect& operator = (const Rect &r) = default;
 };
 
-class Parall:public Romb, public Rect {
+class Parall:public virtual Romb, public virtual Rect {
 public:
     Parall(int _x, int _y, int _dx, int _dy, double _a, double _b, int c) {x = _x;y = _y;dx = _dx;dy = _dy;a = _a;b = _b;color = c;}
     Parall() : Romb(0, 0, 0, 0, 0, 13),Rect(0, 0, 0, 0, 0, 13) {};
     Parall(Parall& xx) = default;
     ~Parall() = default;
-
+    
     void show() {std::cout << x << " " << y << " " << dx << " " << dy << " " << a << " " << b << " " << color;}
     void draw() {
         setcolor(color);

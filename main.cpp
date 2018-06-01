@@ -8,12 +8,15 @@
 
 using namespace std;
 const double PI = 3.14159265358;
+void multidraw(Point *o) {
+    o->draw();
+}
 
 int main(){
 
     int gddriver = DETECT, gmode, errorcode;
     initgraph(&gddriver, &gmode, "");
-
+    /*
     Point p(10, 10, 4);
     p.draw();
     Circle c(20, 20, 10, 13);
@@ -32,7 +35,11 @@ int main(){
     re.draw();
     Parall pa(100, 100, 10, 10, 10, -10, 7);
     pa.draw();
-
+    */
+    Line l(50, 50, 10, 20, 13), *pl = &l;
+    Square s(100, 100, 30, 11, 4), *ps = &s;
+    multidraw(pl);
+    multidraw(ps);
     getch();
     closegraph();
 
